@@ -46,6 +46,7 @@ class DisTime:
     def show_input(self):
         dx = self.dx
         dt = self.dt
+        iteration = self.iteration
         t_length = int(self.iteration*dt)
 
         conc_i = np.zeros((3, 2))  # array 3x2
@@ -358,7 +359,8 @@ class DisTime:
             Ans_OH[:, timesum] = phin[:, 2]
 
             # update iterator
-            timesum = timesum + dt
+            # timesum = timesum + dt
+            timesum = timesum + 1
             time_evo.append(timesum)
             T_evo.append(T_rock)
 
@@ -383,8 +385,9 @@ class DisTime:
             x_model.append(i)
             i += dx
 
-        iteration_right = min(self.iteration, t_length)
-        for j in range(iteration_right):
+        # iteration_right = min(self.iteration, t_length)
+        # iteration_right = t_length
+        for j in range(t_length):
             Ans = list(Ans_Cl[:, j])
             print("* ", j, "\t Ans: ", Ans)
             limit = len(Ans)

@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from .views import DiffView, ExcelView, IniBoundView, DisTimeView
+from .views import DiffView, ExcelView, IniBoundView, DisTimeView, InputIniboundView
 
 router = routers.DefaultRouter()
 
@@ -9,6 +9,7 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('excel', ExcelView.as_view(), name="excel"),
+    path('input-inibound', InputIniboundView.as_view(), name="input-inibound"),
 
     # /diff?temp=900&tilt=17
     path('diff', DiffView.as_view(), name="diffusivity"),

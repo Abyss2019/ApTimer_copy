@@ -272,9 +272,12 @@ $(document).ready(function () {
             $xf_right = $(".inibound #xf_right").val();
             $xoh_right = $(".inibound #xoh_right").val();
 
-            if ($dt > 1 || $dx > 1) {
+            if ($dx > 1) {
                 $(".error-dt").empty();
-                $(".error-dt").append('<span style="color: red;">*Check: dx and dt have to be &le; 1!</span>');
+                $(".error-dt").append('<span style="color: red;">*Check: dx has to be &le; 1!</span>');
+                $(".button-distime").removeAttr("disabled");
+                $(".button-distime").css("width", "");
+                $(".button-distime").html("Run");
             } else {
                 let url = "https://aptimer.wovodat.org/api/distime";
                 let req_data = {
@@ -394,8 +397,44 @@ $(document).ready(function () {
                     }
                 })
             }
+
         } else {
             alert("Please upload excel file");
         }
+    });
+
+    $(".button-upload-inibound").click(function () {
+        let fd = new FormData();
+        let $file = $('.file-inibound #upload-inibound')[0].files[0];
+        fd.append('file', $file);
+
+        $.ajax({
+            url: 'https://aptimer.wovodat.org/api/input-inibound',
+            type: 'post',
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log("success");
+                console.log(data);
+
+                $('#xcl_ini').val(data['xcl'][0]);
+                $('#xcl_left').val(data['xcl'][1]);
+                $('#xcl_right').val(data['xcl'][2]);
+
+                $('#xf_ini').val(data['xf'][0]);
+                $('#xf_left').val(data['xf'][1]);
+                $('#xf_right').val(data['xf'][2]);
+
+                $('#xoh_ini').val(data['xoh'][0]);
+                $('#xoh_left').val(data['xoh'][1]);
+                $('#xoh_right').val(data['xoh'][2]);
+            },
+            error: function (data) {
+                console.log("error");
+                alert("Incorrect format");
+            }
+        });
     });
 });

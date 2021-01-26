@@ -40,9 +40,21 @@ div.input .upload div.custom-file {
     margin-right: 30px;
 }
 
-div.input .button-cal, div.input .button-inibound {
+div.input .button-cal, div.input .button-upload-inibound {
     position: absolute;
     bottom: 0;
+    left: 1rem;
+}
+
+div.input .button-inibound {
+    position: absolute;
+    bottom: 0;
+    left: 6rem;
+}
+
+div.input .file-inibound {
+    position: absolute;
+    bottom: 3rem;
     left: 1rem;
 }
 

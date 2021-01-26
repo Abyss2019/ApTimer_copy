@@ -42,7 +42,8 @@
                     diffusion of F, Cl, OH in
                     apatite with
                     application to magma ascent rates. Earth and Planetary Science Letters. 550, 116545.
-                    (DOI:10.1016/j.epsl.2020.116545)</i></p>
+                    (DOI:10.1016/j.epsl.2020.116545)</i>
+            </p>
         </div>
 
         <div class="input my-3 p-3">
@@ -50,15 +51,14 @@
 
             <p>
                 <b>Measured diffusion profile: </b>
-                <span>Please use the provided <a href="https://aptimer.wovodat.org/static/data_template.csv"
-                        download="data_template.csv">data template</a> (.csv) to organise your data, and upload
+                <span>Please use the provided <a href="https://aptimer.wovodat.org/static/data_template.csv" download="data_template.csv">data template</a> (.csv) to organise your data, and upload
                     the <span style="color: red;">
                         csv</span> file
                     using the green button below.</span>
             </p>
             <form class="upload">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="upload-file">
+                    <input type="file" class="custom-file-input" id="upload-file" accept=".csv">
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
                 <button class="btn button-upload" type="button">Upload & Plot</button>
@@ -106,7 +106,7 @@
 
                 <div class="col position-relative">
                     <form action="" class="inibound">
-                        <p><b>Initial & boundary conditions:</b></p>
+                        <p><b>Initial & boundary conditions:</b> <i><a href="https://aptimer.wovodat.org/static/initial_boundary.csv" download="initial_boundary.csv">example file</a></i></p>
                         <table class="table table-borderless table-sm">
                             <thead>
                                 <td scope="col"></td>
@@ -138,12 +138,17 @@
                     </form>
                     <div id="spacer" style="width: 200px; height: 100px; float:left; display:inline-block"></div>
                     <button class="btn button-inibound" type="button">Plot</button>
+                    <button class="btn button-upload-inibound" type="button">Input</button>
+                    <div class="file-inibound">
+                        <input type="file" class="custom-file-input" id="upload-inibound" accept=".csv">
+                        <label class="custom-file-label" for="customFile">Choose file for input </label>
+                    </div>
                 </div>
             </div>
 
             <hr style="border-top: 1px dashed">
 
-            <p><b>Distance & time steps: </b><i style="color: blue;">dx and dt have to be &le; 1</i></p>
+            <p><b>Distance & time steps: </b><i style="color: blue;">dx has to be &le; 1</i></p>
             <form action="" class="distime">
                 <div class="col-lg-4 col-md-8 p-0">
                     <table class="table table-borderless table-sm">

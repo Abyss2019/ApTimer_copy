@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework import views
 
-from .forms import ExcelForm
+from .forms import ExcelForm, InputIniboundForm
 from .serializers import DiffSerializers, IniBoundSerializers, DisTimeSerializers
 
 from .calculation.diffusivity import DiffFunc
@@ -47,6 +47,22 @@ class ExcelView(views.APIView):
             'err_f': err_f,
             'err_oh': err_oh,
             'length': length-1,
+        })
+
+class InputIniboundView(views.APIView):
+    def post(self, request):
+        form = InputIniboundForm(request.POST, request.FILES)
+        input_file = request.FILES['file']
+        if form.is_valid():
+            lines = input_file.readlines()
+            xcl_input = map(lambda x: float(x), filter(lambda x: x, lines[1].decode('utf-8').split(',')[1:]))
+            xf_input = map(lambda x: float(x), filter(lambda x: x, lines[2].decode('utf-8').split(',')[1:]))
+            xoh_input = map(lambda x: float(x), filter(lambda x: x, lines[3].decode('utf-8').split(',')[1:]))
+
+        return Response({
+            "xcl": xcl_input,
+            "xf": xf_input,
+            "xoh": xoh_input,
         })
 
 
