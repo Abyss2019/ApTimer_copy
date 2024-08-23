@@ -25,7 +25,7 @@ SECRET_KEY = '@%&63_5jblruk-pm(*@8y6i8za2f0s(mmiv-edf!7a7*)uuf(r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vrocklab.hku.hk']
+ALLOWED_HOSTS = ['vrocklab.hku.hk','127.0.0.1', 'localhost', '147.8.202.211']
 
 CORS_ORIGIN_ALLOW_ALL=True
 
