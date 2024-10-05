@@ -124,8 +124,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/ApTimer/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "static"),
+# '/var/www/ApTimer/static/'
 ]
+
+
+# The directory where static files are collected in the production environment using collectstatic
+# STATIC_ROOT  = '/var/www/ApTimer/static/'
