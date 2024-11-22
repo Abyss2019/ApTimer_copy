@@ -344,7 +344,7 @@ class DisTime:
 
                 # computing the matrix
                 R = R.flatten()
-                print("L: ", L)
+                # print("L: ", L)
                 phin[:, gg] = list(np.matmul(np.linalg.inv(L), R))
 
                 # calculating the concentration of the dependent component
