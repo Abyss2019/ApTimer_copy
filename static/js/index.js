@@ -21,7 +21,11 @@ $(document).ready(function () {
         fd.append('excel', $excel);
 
         $.ajax({
+<<<<<<< HEAD
             url: '/ApTimer/api/excel',
+=======
+            url: '/api/excel',
+>>>>>>> 6be8f03deac9a6775cc0f848714391de710357d2
             type: 'post',
             data: fd,
             cache: false,
@@ -99,7 +103,11 @@ $(document).ready(function () {
             $temp = $(".diffusivity-cal #temp").val();
             $tilt = $(".diffusivity-cal #tilt").val();
 
+<<<<<<< HEAD
             let url = "/ApTimer/api/diff";
+=======
+            let url = "/api/diff";
+>>>>>>> 6be8f03deac9a6775cc0f848714391de710357d2
             $.get(url, { temp: $temp, tilt: $tilt }, function (data, status) {
                 console.log(status);
                 if (status == "success") {
@@ -144,7 +152,11 @@ $(document).ready(function () {
 
                 console.log(sum_ini, sum_left, sum_right);
                 if (sum_ini <= 1 && sum_left <= 1 && sum_right <= 1) {
+<<<<<<< HEAD
                     let url = "/ApTimer/api/inibound";
+=======
+                    let url = "/api/inibound";
+>>>>>>> 6be8f03deac9a6775cc0f848714391de710357d2
                     let req_data = {
                         xcl_ini: $xcl_ini,
                         xf_ini: $xf_ini,
@@ -279,7 +291,11 @@ $(document).ready(function () {
                 $(".button-distime").css("width", "");
                 $(".button-distime").html("Run");
             } else {
+<<<<<<< HEAD
                 let url = "/ApTimer/api/distime";
+=======
+                let url = "/api/distime";
+>>>>>>> 6be8f03deac9a6775cc0f848714391de710357d2
                 let req_data = {
                     dx: $dx,
                     dt: $dt,
