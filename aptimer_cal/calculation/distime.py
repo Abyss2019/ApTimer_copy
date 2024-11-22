@@ -44,6 +44,12 @@ class DisTime:
         self.err = np.array([err_cl, err_f, err_oh])
 
     def show_input(self):
+        import numpy as np
+
+        print("L shape:", L.shape)
+        print("R shape:", R.shape)
+        print("Matrix multiplication result shape:", np.matmul(np.linalg.inv(L), R).shape)
+
         dx = self.dx
         dt = self.dt
         iteration = self.iteration
