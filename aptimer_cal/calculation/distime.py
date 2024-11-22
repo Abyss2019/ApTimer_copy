@@ -341,6 +341,7 @@ class DisTime:
                 # SPACE LOOP ENDS
 
                 # computing the matrix
+                R = R.flatten()
                 phin[:, gg] = list(np.matmul(np.linalg.inv(L), R))
 
                 # calculating the concentration of the dependent component
