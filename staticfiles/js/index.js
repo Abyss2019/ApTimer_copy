@@ -21,7 +21,7 @@ $(document).ready(function () {
         fd.append('excel', $excel);
 
         $.ajax({
-            url: 'https://aptimer.wovodat.org/api/excel',
+            url: '/ApTimer/api/excel',
             type: 'post',
             data: fd,
             cache: false,
@@ -99,7 +99,7 @@ $(document).ready(function () {
             $temp = $(".diffusivity-cal #temp").val();
             $tilt = $(".diffusivity-cal #tilt").val();
 
-            let url = "https://aptimer.wovodat.org/api/diff";
+            let url = "/ApTimer/api/diff";
             $.get(url, { temp: $temp, tilt: $tilt }, function (data, status) {
                 console.log(status);
                 if (status == "success") {
@@ -144,7 +144,7 @@ $(document).ready(function () {
 
                 console.log(sum_ini, sum_left, sum_right);
                 if (sum_ini <= 1 && sum_left <= 1 && sum_right <= 1) {
-                    let url = "https://aptimer.wovodat.org/api/inibound";
+                    let url = "/ApTimer/api/inibound";
                     let req_data = {
                         xcl_ini: $xcl_ini,
                         xf_ini: $xf_ini,
@@ -279,7 +279,7 @@ $(document).ready(function () {
                 $(".button-distime").css("width", "");
                 $(".button-distime").html("Run");
             } else {
-                let url = "https://aptimer.wovodat.org/api/distime";
+                let url = "/ApTimer/api/distime";
                 let req_data = {
                     dx: $dx,
                     dt: $dt,
@@ -409,7 +409,7 @@ $(document).ready(function () {
         fd.append('file', $file);
 
         $.ajax({
-            url: 'https://aptimer.wovodat.org/api/input-inibound',
+            url: '/ApTimer/api/input-inibound',
             type: 'post',
             data: fd,
             cache: false,
