@@ -410,6 +410,7 @@ $(document).ready(function () {
 
         $.ajax({
             url: '/ApTimer/api/input-inibound',
+            url: '/ApTimer/api/input-inibound',
             type: 'post',
             data: fd,
             cache: false,
